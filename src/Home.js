@@ -11,7 +11,7 @@ function Home() {
             <p>Welcome to PathGuessr - Gondwa</p>
             <Link to="/PathGuessr/game"><button id="play-button">Play</button></Link>
         </div>
-        <div id="bottom-bar"><p>This is a FAN GAME made by Volkie and Tanks4lief. It is NOT created by or affiliated by any means to Alderon Games.</p></div>
+        <div id="bottom-bar"><p>This is a FAN GAME made by Volkie and Tanks4lief. It is not created by or affiliated by any means to Alderon Games.</p></div>
       </div>
     </div>
   );
