@@ -1,0 +1,219 @@
+
+
+#mainBody {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'KG Red Hands';
+    background-image: url('../public/images/background.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    display:flex;
+    flex-direction: column;
+  } 
+  
+  #playBody {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'KG Red Hands';
+    overflow:hidden;
+  }
+  
+  #play-container {
+    position: fixed; 
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  @font-face {
+    font-family: 'KG Red Hands';
+    src: url('../public/fonts/KGRedHands.ttf');
+    
+  }
+  
+  #top-bar h1 {
+    margin: 0;
+    font-weight: 100;
+  }
+  
+  #top-bar a {
+    text-decoration: none;
+    color: rgb(243, 201, 189);
+  }
+  
+  #top-bar {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to bottom, rgb(143, 29, 14), rgb(77, 16, 8));
+    border-bottom: 5px solid rgb(212, 53, 4);
+    color: rgb(243, 201, 189);
+    text-align: center;
+    padding-top: 10px;
+  }
+  
+  #bottom-bar {
+    width: 100%;
+    height: 40px;
+    color:white;
+    background-color: rgb(18, 21, 43);
+    text-align: center;
+    font-size:10pt;
+  }
+  
+  #menu {
+    width: 400px;
+    height: 400px; /* Adjust the height as needed */
+    background: linear-gradient(to bottom, rgb(241, 221, 216), rgb(243, 201, 189));
+    margin: auto;
+    margin-top: 100px;
+    padding: 50px;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #logo {
+    width: 250px;
+    height: 100px;
+  }
+  
+  
+  
+  #play-button, #guess-button, #next-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: rgb(212, 53, 4);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15pt;
+    font-family: inherit;
+    width: 100px;
+    height: 50px;
+  }
+  
+  #playagain-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: rgb(212, 53, 4);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15pt;
+    font-family: inherit;
+    width: 150px;
+    height: 50px;
+  }
+  
+  #guess-button:disabled {
+    /* Add the following styles to make the button appear grayed out */
+    color: #999; /* Gray text color */
+    background-color: #f5f5f5; /* Light gray background */
+    cursor: not-allowed; /* Show disabled cursor */
+  }
+  
+  #play-button:hover {
+    background-color: rgb(163, 41, 4);
+  }
+  
+  #guess-panel {
+    background: linear-gradient(to bottom, rgb(241, 221, 216), rgb(243, 201, 189));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+    border-right: 2px solid rgb(212, 53, 4);
+    overflow:hidden;
+  }
+  
+  #locP {
+      display: flex;
+      align-items: center;
+  }
+  
+  #map {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .leaflet-bar a {
+      background-color: rgb(163, 41, 4);
+      color: #fff;
+  }
+  
+  .leaflet-bar a:hover
+  {
+      background-color: #F4F4F4;
+      color: #000;
+  }
+  
+  .leaflet-bottom.leaflet-right {
+    display:none;
+  }
+  
+  /* Home.css */
+  .modal {
+    position: fixed;
+    z-index: 9998;
+    left: 0;
+    top: 0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .modal-content {
+    display: block;
+    position: relative;
+    background-color: rgb(212, 53, 4);
+    padding: 10px;
+    border: 1px solid rgb(163, 41, 4);
+    width: 75%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  }
+  
+  .close {
+    color: rgb(212, 53, 4);
+    padding: 20px;
+    font-size: 100px;
+    font-weight: bold;
+    position:absolute;
+    top: -50px;
+    left: 90%;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: rgb(163, 41, 4);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #imagePreview {
+    cursor: pointer;
+    border: 5px solid rgb(212, 53, 4);
+  }
+  
+  #score {
+    font-size: 15pt;
+    color: rgb(212, 53, 4);
+  }
+  
+  #totalScore {
+    font-size: 15pt;
+    color: rgb(212, 53, 4);
+  }
+  
