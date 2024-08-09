@@ -233,6 +233,7 @@ function onMapClick(e) {
   const Next = () => {
     if (gameStage<5) {
       setGuessMode(true);
+      document.getElementById('imagePreview').src = '';
       getRandomImagePath();
       setGameStage(gameStage+1);
       document.getElementById('score').textContent = '';
