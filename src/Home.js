@@ -1,5 +1,6 @@
 import './Home.css';
 import {Link} from "react-router-dom";
+import logo from './logo.png';
 
 function Home() {
   return (
@@ -7,7 +8,7 @@ function Home() {
       <div id="mainBody">
         <div id="top-bar"><h1><Link to="/PathGuessr">PathGuessr</Link></h1></div>
         <div id="menu">
-            <img id="logo" src="images/logo.png" alt="PathGuessr"/>
+            <img id="logo" src={logo} alt="PathGuessr"/>
             <p>Welcome to PathGuessr - Gondwa</p>
             <Link to="/PathGuessr/game"><button id="play-button">Play</button></Link>
         </div>
