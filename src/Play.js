@@ -20,6 +20,30 @@ function Play() {
     setShowModal(true);
   };
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.code === 'Space' && !showModal) {
+        event.preventDefault(); // Prevent default spacebar behavior
+  
+        if (gameStage === 5 && !guessMode) {
+          PlayAgain(); // Trigger the Play Again action
+        } else if (guessMode && markerExists) {
+          Guess(); // Trigger the Guess action
+        } else if (!guessMode) {
+          Next(); // Trigger the Next action
+        }
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyDown);
+  
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [showModal, guessMode, markerExists, gameStage]); // Added gameStage as a dependency
+  
+  
+
   const closeModal = () => {
     setShowModal(false);
   };
@@ -272,27 +296,47 @@ function onMapClick(e) {
   
   return (
     <div className="PlayApp">
-        <div id="playBody">
-            <div id="top-bar"><h1><Link to="/PathGuessr">PathGuessr</Link></h1></div>
-            <div id="play-container">
-                <div id="guess-panel">
-                    <Link to="/PathGuessr"><img id="logo" src="images/logo.png" alt="PathGuessr"/></Link>
-                    <p id="locP"><IoMdPin color='#d43504' size='30'/>&nbsp;Location: {gameStage}/5</p>
-                    <img alt="" id="imagePreview" src={currentImagePath} width="600px" onClick={openModal}/>
-                    {guessMode && <p><i><small>You can click on the image to enlarge it</small></i></p>}
-                    {guessMode && <button id="guess-button" onClick={Guess} disabled={!markerExists}>Guess</button>}
-                    {!guessMode && <p> </p>}
-                    {!guessMode && <p>The location was in: {regionDictionary[currentImageInfo[2]]}</p>}
-                    {!guessMode && gameStage < 5 && <button id="next-button" onClick={Next}>Next</button>}
-                    <p id="score"></p>
-                    <p id="totalScore"></p>
-                    {!guessMode && gameStage === 5 && <button id="playagain-button" onClick={PlayAgain}>Play Again</button>}
-                    
-                </div>
-                <div id="map" ref={mapRef}></div>
-            </div>
+      <div id="playBody">
+        <div id="top-bar">
+          <h1><Link to="/PathGuessr">PathGuessr</Link></h1>
         </div>
-        {showModal && (
+        <div id="play-container">
+          <div id="guess-panel">
+            <Link to="/PathGuessr">
+              <img id="logo" src="images/logo.png" alt="PathGuessr" />
+            </Link>
+            <p id="locP"><IoMdPin color='#d43504' size='30' />&nbsp;Location: {gameStage}/5</p>
+            <img alt="" id="imagePreview" src={currentImagePath} width="600px" onClick={openModal} />
+            {guessMode && <p><i><small>You can click on the image to enlarge it</small></i></p>}
+            
+            {guessMode && (
+              <>
+                <button id="guess-button" onClick={Guess} disabled={!markerExists}>Guess</button>
+                <p><i><small>You can also hit "Space"</small></i></p>
+              </>
+            )}
+            
+            {!guessMode && gameStage < 5 && (
+              <>
+                <button id="next-button" onClick={Next}>Next</button>
+                <p><i><small>You can also hit "Space"</small></i></p>
+              </>
+            )}
+            
+            {!guessMode && gameStage === 5 && (
+              <>
+                <button id="playagain-button" onClick={PlayAgain}>Play Again</button>
+                <p><i><small>You can also hit "Space"</small></i></p>
+              </>
+            )}
+  
+            <p id="score"></p>
+            <p id="totalScore"></p>
+          </div>
+          <div id="map" ref={mapRef}></div>
+        </div>
+      </div>
+      {showModal && (
         <div className="modal">
           <span className="close" onClick={closeModal}>&times;</span>
           <img alt="" className="modal-content" src={currentImagePath} />
@@ -300,6 +344,7 @@ function onMapClick(e) {
       )}
     </div>
   );
+  
 
   
 }
